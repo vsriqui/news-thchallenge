@@ -10,9 +10,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 const GlobalStyle = createGlobalStyle`
   body, #root {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
+    font-family: "Times New Roman", Times, serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: red;
@@ -20,11 +18,13 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     display: flex;
     justify-content: center;
+    background: url('https://t3.ftcdn.net/jpg/00/97/87/38/240_F_97873827_9UJtWFSHxxJvg2qxF6LBH44Yk1tdQ8sP.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
   }
 
   code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
+    font-family: "Times New Roman", Times, serif;
   }
 
   

@@ -3,6 +3,7 @@ import { Routes, Route} from 'react-router-dom'
 // import styled from 'styled-components'
 // import {getNews} from './Api'
 import { useEffect, useState } from 'react';
+import Home from './Home'
 
 //
 
@@ -24,13 +25,10 @@ function App() {
 
 
   return (
-    <div>
-    <h2>hello world!</h2>
     <Routes>
-      <Route exact path='/' />
+      <Route exact path='/' element={<Home news={news} />} />
       <Route path='*'/>
     </Routes>
-    </div>
   );
 }
 

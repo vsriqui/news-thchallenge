@@ -1,5 +1,5 @@
 
-function getNews(que) {
+function getNews() {
   return fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=99699c820956418fa83a5a084aa33683`, {
     method: "GET",  
 
