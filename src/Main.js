@@ -1,8 +1,10 @@
 import styled from 'styled-components';
+import NewsCards from './NewsCards'
 
 const StyledMain = styled.main `
 display: flex;
-flex-direction: column;
+flex-direction: row;
+flex-wrap: wrap;
 min-width: 95vw;
 min-height: 75vh;
 border: 2px double black;
@@ -13,7 +15,7 @@ function Main({news}) {
 
   return (
     <StyledMain>
-      <h2> hello</h2>
+      <NewsCards news={news}/>
     </StyledMain>
   )
 } 

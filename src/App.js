@@ -16,8 +16,8 @@ function App() {
       // getNews()
       //   .then((data) => console.log(data))
       //   .catch((error) => error);  
-      setNews(mock)
-      console.log(mock.articles[0])
+      setNews(mock.articles)
+      // console.log(mock.articles[0])
     
     };
     fetchNews(); 
