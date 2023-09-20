@@ -4,6 +4,8 @@ import { Routes, Route} from 'react-router-dom'
 // import {getNews} from './Api'
 import { useEffect, useState } from 'react';
 
+//
+
 function App() {
 
   const [news, setNews] = useState([]);
