@@ -1,14 +1,18 @@
-import styled from 'styled-components';
 import NewsCard from './NewsCard'
 
 
+function NewsCards({news, search}) {
 
-function NewsCards({news}) {
+  const lowerCaseSearch = search.toLowerCase();
 
-  const newsMap = news
-    .map((param) => <NewsCard title={param.title} image={param.urlToImage} description={param.description} date={param.publishedAt}/>)
+  
 
-  // console.log(news)
+  const filterBySearch = search ? news.filter((article) => ((article.title+article.description+article.author+article.content+article.source.name).toLowerCase().includes(lowerCaseSearch))) : news;
+
+  console.log(filterBySearch)
+  const newsMap = filterBySearch
+    .map((param) => <NewsCard key={param.title} title={param.title} image={param.urlToImage} description={param.description} date={param.publishedAt}/>)
+
   return (
     <>
       {newsMap}

@@ -10,7 +10,7 @@ import Home from './Home'
 function App() {
 
   const [news, setNews] = useState([]);
-  const [search, setSearch] = useState([]);
+  const [search, setSearch] = useState('');
 
   const handleSearch = (newState) => {
     setSearch(newState);

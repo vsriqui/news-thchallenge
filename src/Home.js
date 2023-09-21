@@ -17,7 +17,7 @@ function Home({news, handleSearch, search}) {
   return (
     <StyledContain>
       <Nav news={news} handleSearch={handleSearch} search={search}/>
-      <Main news={news}/>
+      <Main news={news} search={search}/>
     </StyledContain>
   )
 } 
