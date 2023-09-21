@@ -38,7 +38,7 @@ const StyledInput = styled.input`
   &::placeholder {
     opacity: 1;
     color: black;
-    font-size: 1.3vw;
+    font-size: 1.2vw;
   }
 `
 

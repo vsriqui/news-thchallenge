@@ -1,7 +1,7 @@
 import NewsCard from './NewsCard'
 
 
-function NewsCards({news, search}) {
+function NewsCards({news, search, newsInfoFunc}) {
 
   const lowerCaseSearch = search.toLowerCase();
 
@@ -11,7 +11,7 @@ function NewsCards({news, search}) {
 
   console.log(filterBySearch)
   const newsMap = filterBySearch
-    .map((param) => <NewsCard key={param.title} title={param.title} image={param.urlToImage} description={param.description} date={param.publishedAt}/>)
+    .map((param) => <NewsCard newsInfoFunc={newsInfoFunc} key={param.title} title={param.title} image={param.urlToImage} description={param.description} date={param.publishedAt}/>)
 
   return (
     <>

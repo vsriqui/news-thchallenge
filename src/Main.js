@@ -12,11 +12,11 @@ border: 2px double black;
 margin: 1%;
 `
 
-function Main({news, search}) {
+function Main({news, search, newsInfoFunc}) {
 
   return (
     <StyledMain>
-      <NewsCards news={news} search={search}/>
+      <NewsCards news={news} search={search} newsInfoFunc={newsInfoFunc}/>
     </StyledMain>
   )
 } 
