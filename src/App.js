@@ -10,6 +10,12 @@ import Home from './Home'
 function App() {
 
   const [news, setNews] = useState([]);
+  const [search, setSearch] = useState([]);
+
+  const handleSearch = (newState) => {
+    setSearch(newState);
+    console.log(search, 'SEEEEARCH')
+  };
 
   useEffect(() => {
     const fetchNews = () => {
@@ -26,7 +32,7 @@ function App() {
 
   return (
     <Routes>
-      <Route exact path='/' element={<Home news={news} />} />
+      <Route exact path='/' element={<Home news={news} handleSearch={handleSearch} search={search}/>} />
       <Route path='*'/>
     </Routes>
   );

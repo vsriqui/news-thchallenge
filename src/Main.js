@@ -5,6 +5,7 @@ const StyledMain = styled.main `
 display: flex;
 flex-direction: row;
 flex-wrap: wrap;
+justify-content: space-around;
 min-width: 95vw;
 min-height: 75vh;
 border: 2px double black;
