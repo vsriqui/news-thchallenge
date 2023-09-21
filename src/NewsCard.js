@@ -14,6 +14,7 @@ function NewsCard({title, image, description, date}) {
   `
 
   const TitleMini = styled.h2 `
+  font-size: 2.5vw;
   display: block;
   text-align: center;
   min-width: .5vw;
@@ -33,6 +34,7 @@ function NewsCard({title, image, description, date}) {
   `;
 
   const DescriptionMini = styled.p `
+  font-size: 2.1vw;
   display: block;
   text-align: center;
   min-width: .5vw;
@@ -44,6 +46,7 @@ function NewsCard({title, image, description, date}) {
   `
 
   const DateMini = styled.h4 `
+  font-size: 2vw;
   display: block;
   text-align: center;
   min-width: .5vw;
