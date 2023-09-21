@@ -1,23 +1,18 @@
-import styled from 'styled-components';
 import NewsCard from './NewsCard'
 
-// const StyledMain = styled.main `
-// display: flex;
-// flex-direction: column;
-// min-width: 95vw;
-// min-height: 75vh;
-// border: 2px double black;
-// margin: 1%;
-// `
 
+function NewsCards({news, search}) {
 
+  const lowerCaseSearch = search.toLowerCase();
 
-function NewsCards({news}) {
+  
 
-  const newsMap = news
-    .map((param) => <NewsCard title={param.title} image={param.urlToImage} description={param.description} date={param.publishedAt}/>)
+  const filterBySearch = search ? news.filter((article) => ((article.title+article.description+article.author+article.content+article.source.name).toLowerCase().includes(lowerCaseSearch))) : news;
 
-  console.log(news)
+  console.log(filterBySearch)
+  const newsMap = filterBySearch
+    .map((param) => <NewsCard key={param.title} title={param.title} image={param.urlToImage} description={param.description} date={param.publishedAt}/>)
+
   return (
     <>
       {newsMap}
