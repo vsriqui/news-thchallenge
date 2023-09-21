@@ -1,9 +1,10 @@
 // import './App.css';
 import { Routes, Route} from 'react-router-dom'
 // import styled from 'styled-components'
-// import {getNews} from './Api'
+import {getNews} from './Api'
 import { useEffect, useState } from 'react';
 import Home from './Home'
+import NewsInfoComp from './NewsInfoComp'
 
 //
 
@@ -11,6 +12,8 @@ function App() {
 
   const [news, setNews] = useState([]);
   const [search, setSearch] = useState('');
+  const [articleInfo, setArticleInfo] = useState('');
+  const [source, setSource] = useState('');
 
   const handleSearch = (newState) => {
     setSearch(newState);
@@ -20,7 +23,7 @@ function App() {
   useEffect(() => {
     const fetchNews = () => {
       // getNews()
-      //   .then((data) => console.log(data))
+      //   .then((data) => setNews(data.articles))
       //   .catch((error) => error);  
       setNews(mock.articles)
       // console.log(mock.articles[0])
@@ -29,10 +32,17 @@ function App() {
     fetchNews(); 
   }, []);
 
+  const newsInfoFunc = (titlz) => {  
+    let oneArticle = news.find(ne => ne.title === titlz)
+    setSource(oneArticle.source)
+    setArticleInfo(oneArticle)
+    console.log(articleInfo, 'dhfjljafshdsfldh')
+  }
 
   return (
     <Routes>
-      <Route exact path='/' element={<Home news={news} handleSearch={handleSearch} search={search}/>} />
+      <Route exact path='/' element={<Home news={news} handleSearch={handleSearch} search={search} newsInfoFunc={newsInfoFunc} />} />
+      <Route path='title/:title' element={<NewsInfoComp title={articleInfo.title}  image={articleInfo.urlToImage} date={articleInfo.publishedAt} author={articleInfo.author} content={articleInfo.content} source={source.name}/>} />
       <Route path='*'/>
     </Routes>
   );

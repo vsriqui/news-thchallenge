@@ -10,14 +10,14 @@ min-width: 100vw;
 `
 
 
-function Home({news, handleSearch, search}) {
+function Home({news, handleSearch, search, newsInfoFunc}) {
 
 
 
   return (
     <StyledContain>
       <Nav news={news} handleSearch={handleSearch} search={search}/>
-      <Main news={news} search={search}/>
+      <Main news={news} search={search} newsInfoFunc={newsInfoFunc}/>
     </StyledContain>
   )
 } 
