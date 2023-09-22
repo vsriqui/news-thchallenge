@@ -1,11 +1,10 @@
-// import './App.css';
-import { Routes, Route} from 'react-router-dom'
+import { Routes, Route, useNavigate} from 'react-router-dom'
 // import styled from 'styled-components'
 import {getNews} from './Api'
 import { useEffect, useState } from 'react';
 import Home from './Home'
 import NewsInfoComp from './NewsInfoComp'
-
+import Error from './Error'
 //
 
 function App() {
@@ -14,6 +13,8 @@ function App() {
   const [search, setSearch] = useState('');
   const [articleInfo, setArticleInfo] = useState('');
   const [source, setSource] = useState('');
+  const [error, setError] = useState('')
+  const navigate = useNavigate([]);
 
   const handleSearch = (newState) => {
     setSearch(newState);
@@ -22,10 +23,10 @@ function App() {
 
   useEffect(() => {
     const fetchNews = () => {
-      // getNews()
-      //   .then((data) => setNews(data.articles))
-      //   .catch((error) => error);  
-      setNews(mock.articles)
+      getNews()
+        .then((data) => setNews(data.articles))
+        .catch((error) => setError(error.message));  
+      // setNews(mock.articles)
       // console.log(mock.articles[0])
     
     };
@@ -39,11 +40,18 @@ function App() {
     console.log(articleInfo, 'dhfjljafshdsfldh')
   }
 
+  useEffect(() => {
+    if (error) {
+      navigate('/error');
+    } 
+  }, [navigate, error]);
+
   return (
     <Routes>
       <Route exact path='/' element={<Home news={news} handleSearch={handleSearch} search={search} newsInfoFunc={newsInfoFunc} />} />
       <Route path='title/:title' element={<NewsInfoComp title={articleInfo.title}  image={articleInfo.urlToImage} date={articleInfo.publishedAt} author={articleInfo.author} content={articleInfo.content} source={source.name}/>} />
-      <Route path='*'/>
+      <Route path='error' element={<Error error={error}/>}/>
+      <Route path='*' element={<Error error={error}/>} />
     </Routes>
   );
 }

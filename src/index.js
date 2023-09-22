@@ -9,6 +9,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const GlobalStyle = createGlobalStyle`
   body, #root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

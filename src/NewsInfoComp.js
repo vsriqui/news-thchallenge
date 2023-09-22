@@ -71,9 +71,11 @@ function NewsInfoComp({title, image, date, author, content, source}) {
   const navigate = useNavigate();
 
   useEffect(()=>{
-  if (!title) {
-    navigate('/');
-  }
+  if (window.performance.getEntriesByType('navigation').map((nav) => nav.type).includes('reload') && !title) {
+      navigate('/')
+    } else if (!title) {
+      navigate('/error');
+    }  
 }, [navigate, title])
 
   return (
