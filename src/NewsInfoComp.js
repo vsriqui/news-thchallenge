@@ -65,7 +65,6 @@ backdrop-filter: brightness(110%);
 `
 
 function NewsInfoComp({title, image, date, author, content, source}) {
-  console.log(source, "sourceeeeeee")
 
 
   const navigate = useNavigate();

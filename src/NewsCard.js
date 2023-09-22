@@ -65,14 +65,13 @@ function NewsCard({ title, image, description, date, newsInfoFunc}) {
 
   const handleNewsInfo = () => {
     newsInfoFunc(title);
-    console.log('sadsadasdasd')
   };
 
   // console.log(title, image, description, date)
   return (
     <>
     <StyledMini tabIndex={0}>
-      <Link to={`title/${title}`} onClick={handleNewsInfo}>
+      <Link to={`title/${title.split(' ').join('_')}`} onClick={handleNewsInfo}>
         <DateMini> Click for whole article </DateMini>
       </Link>
       <TitleMini> {title} </TitleMini> 

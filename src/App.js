@@ -23,12 +23,10 @@ function App() {
 
   useEffect(() => {
     const fetchNews = () => {
-      getNews()
-        .then((data) => setNews(data.articles))
-        .catch((error) => setError(error.message));  
-      // setNews(mock.articles)
-      // console.log(mock.articles[0])
-    
+      // getNews()
+      //   .then((data) => setNews(data.articles))
+      //   .catch((error) => setError(error.message));  
+      setNews(mock.articles)
     };
     fetchNews(); 
   }, []);
@@ -37,7 +35,6 @@ function App() {
     let oneArticle = news.find(ne => ne.title === titlz)
     setSource(oneArticle.source)
     setArticleInfo(oneArticle)
-    console.log(articleInfo, 'dhfjljafshdsfldh')
   }
 
   useEffect(() => {
